@@ -276,7 +276,7 @@ def contactme():
 
 def send_email(name, email, phone, message):
     email_message = f"Subject:New Message\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage:{message}"
-    with smtplib.SMTP("smtp.gmail.com") as connection:
+    with smtplib.SMTP("smtp.gmail.com",port=587) as connection:
         connection.starttls()
         connection.login(MAIL_ADDRESS, MAIL_APP_PW)
         connection.sendmail(MAIL_ADDRESS, MAIL_APP_PW, email_message)
